@@ -20,10 +20,17 @@ const AppProvider = ({ children }) => {
       setFilteredCompanies(filtered);
     } else if (name === 'order') {
       //odenar
-      const ordered =
-        value === 'asc'
-          ? filteredCompanies.sort((a, b) => a.name.localeCompare(b.name))
-          : filteredCompanies.sort((a, b) => b.name.localeCompare(a.name));
+      let ordered;
+      if (value === 'id') {
+        ordered = filteredCompanies.sort((a, b) => (a.id < b.id ? 1 : -1));
+      } else if (value === 'name') {
+        ordered = filteredCompanies.sort((a, b) => (a.name < b.name ? 1 : -1));
+      } else {
+        ordered = filteredCompanies.sort((a, b) => (a.date < b.date ? 1 : -1));
+      }
+
+      setFilteredCompanies(ordered);
+      console.log(filteredCompanies);
     }
   };
 

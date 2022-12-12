@@ -1,11 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styles from './styles/Filters.module.scss';
 import { useAppContext } from '../../context/appContext';
 
 const Filters = () => {
   const { filterCompanies } = useAppContext();
-
-  useEffect(() => {}, []);
 
   const onChangeHandler = (e) => {
     filterCompanies(e.target.name, e.target.value);
