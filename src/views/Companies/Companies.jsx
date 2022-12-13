@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
 import styles from './styles/Companies.module.scss';
 import { useAppContext } from '../../context/appContext';
@@ -18,7 +18,7 @@ const Companies = () => {
       setFilteredCompanies(orderById);
     };
     getCompanies();
-  }, []);
+  }, [setCompanies, setFilteredCompanies]);
 
   return (
     <div className={styles.companies}>

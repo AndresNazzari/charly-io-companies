@@ -32,6 +32,8 @@ const AppProvider = ({ children }) => {
 
       setFilteredCompanies(ordered);
     }
+
+    console.log(filteredCompanies);
   };
 
   const value = {
