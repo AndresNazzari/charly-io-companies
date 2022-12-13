@@ -4,7 +4,7 @@ import { useAppContext } from '../../context/appContext';
 
 const Table = () => {
   const { filteredCompanies } = useAppContext();
-  console.log('azsdf');
+
   return (
     <div className={styles.table}>
       <table>
