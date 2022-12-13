@@ -13,35 +13,32 @@ const AppProvider = ({ children }) => {
   const [filteredCompanies, setFilteredCompanies] = useState([]);
 
   const filterCompanies = (name, value) => {
-    console.log(name, value);
     if (name === 'status') {
       //filtrar
+      console.log('filtrar');
       const filtered = value === 'all' ? companies : companies.filter((company) => company.status === value);
       setFilteredCompanies(filtered);
     } else if (name === 'order') {
       //odenar
+      console.log('ordenar', value);
       let ordered;
       if (value === 'id') {
-        ordered = filteredCompanies.sort((a, b) => (a.id < b.id ? 1 : -1));
+        ordered = filteredCompanies.sort((a, b) => (a.id < b.id ? -1 : 1));
       } else if (value === 'name') {
-        ordered = filteredCompanies.sort((a, b) => (a.name < b.name ? 1 : -1));
+        ordered = filteredCompanies.sort((a, b) => (a.name < b.name ? -1 : 1));
       } else {
-        ordered = filteredCompanies.sort((a, b) => (a.date < b.date ? 1 : -1));
+        ordered = filteredCompanies.sort((a, b) => (a.date < b.date ? -1 : 1));
       }
 
       setFilteredCompanies(ordered);
-      console.log(filteredCompanies);
     }
   };
-
-  const orderCompanies = (name, value) => {};
 
   const value = {
     companies,
     setCompanies,
     filteredCompanies,
     setFilteredCompanies,
-    orderCompanies,
     filterCompanies,
   };
 

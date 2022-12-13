@@ -13,8 +13,9 @@ const Companies = () => {
   useEffect(() => {
     const getCompanies = async () => {
       const response = await axios.get(getCompaniesEndpoint);
-      setCompanies(response.data.companies);
-      setFilteredCompanies(response.data.companies);
+      const orderById = response.data.companies.sort((a, b) => a.id - b.id);
+      setCompanies(orderById);
+      setFilteredCompanies(orderById);
     };
     getCompanies();
   }, []);
